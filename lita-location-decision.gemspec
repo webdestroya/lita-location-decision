@@ -3,9 +3,9 @@ Gem::Specification.new do |spec|
   spec.version       = "0.0.1"
   spec.authors       = ["Mitch Dempsey"]
   spec.email         = ["mrdempsey@gmail.com"]
-  spec.description   = %q{TODO: Add a description}
-  spec.summary       = %q{TODO: Add a summary}
-  spec.homepage      = "TODO: Add a homepage"
+  spec.description   = %q{A Lita handler for making decisions about places to go}
+  spec.summary       = %q{A Lita handler for making decisions about places to go}
+  spec.homepage      = "https://github.com/webdestroya/lita-location-decision"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
