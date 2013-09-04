@@ -22,6 +22,7 @@ gem "lita-location-decision"
 Lita: remember <location> as a <group> location - Remembers the location for the group
 Lita: forget <location> as a <group> location - Forgets the location from the group
 Lita: forget all locations for <group> - Forgets all the locations for the group
+Lita: forget all <group> locations - Forgets all the locations for the group
 Lita: where can we go for <group>? - Returns a list of places that exist for the group
 Lita: where should we go for <group>? - Returns a randomly selected location for the group
 ```
