@@ -34,12 +34,47 @@ describe Lita::Handlers::LocationDecision, lita_handler: true do
 
     send_command "forget all lunch locations"
     expect(replies.last).to_not be_nil
-    expect(replies.last).to include("I have removed all lunch locations.")
+    expect(replies.last).to eq("I have removed all lunch locations.")
   end
 
-  it "checks an forget all with no locations" do 
+  it "checks a forget all with no locations" do
     send_command "forget all lunch locations"
     expect(replies.last).to_not be_nil
-    expect(replies.last).to include("I do not know about any lunch locations.")
+    expect(replies.last).to eq("I do not know about any lunch locations.")
+  end
+
+  it "checks a forget with no locations" do
+    send_command "forget taco bell as a lunch location"
+    expect(replies.last).to_not be_nil
+    expect(replies.last).to eq("No lunch locations have been added.")
+  end
+
+  it "checks a list with no locations" do
+    send_command "where can we go for lunch?"
+    expect(replies.last).to_not be_nil
+    expect(replies.last).to eq("No lunch locations have been added.")
+  end
+
+  it "checks a choose with no locations" do
+    send_command "where should we go for lunch?"
+    expect(replies.last).to_not be_nil
+    expect(replies.last).to eq("No lunch locations have been added.")
+  end
+
+  it "ensures that locations can be forgotten" do
+    send_command "remember taco bell as a lunch location"
+    send_command "remember mcdonalds as a lunch location"
+
+    send_command "where can we go for lunch?"
+    expect(replies.last).to_not be_nil
+    expect(replies.last).to eq("I know about the following lunch locations: taco bell, mcdonalds")
+
+    send_command "forget taco bell as a lunch location"
+    expect(replies.last).to_not be_nil
+    expect(replies.last).to eq("I have removed taco bell from the list of lunch locations.")
+
+    send_command "where can we go for lunch?"
+    expect(replies.last).to_not be_nil
+    expect(replies.last).to eq("I know about the following lunch locations: mcdonalds")
   end
 end
