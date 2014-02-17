@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = "lita-location-decision"
-  spec.version       = "0.0.1"
+  spec.version       = "0.0.2"
   spec.authors       = ["Mitch Dempsey"]
   spec.email         = ["mrdempsey@gmail.com"]
   spec.description   = %q{A Lita handler for making decisions about places to go}
@@ -20,4 +20,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", ">= 2.14"
   spec.add_development_dependency "simplecov"
   spec.add_development_dependency "coveralls"
+
+  spec.metadata = { "lita_plugin_type" => "handler" }
 end
